@@ -81,7 +81,7 @@
             </button>
           </form>
           <!-- Registration Form -->
-          <vee-form v-show="tab === 'register'">
+          <vee-form v-show="tab === 'register'" :validation-schema="schema">
             <!-- Name -->
             <div class="mb-3">
               <label class="inline-block mb-2">Name</label>
@@ -91,6 +91,8 @@
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
                 placeholder="Enter Name"
               />
+              <!-- O nome do componente aqui tem que ser o nome do que vai ser validado -->
+              <ErrorMessage class="text-red-600" name="name"></ErrorMessage>
             </div>
             <!-- Email -->
             <div class="mb-3">
@@ -159,12 +161,22 @@
 //mapState só lê, mapWritableState lê e altera
 import { mapState, mapWritableState } from 'pinia'
 import useModalStore from '@/stores/modal'
+import { ErrorMessage } from 'vee-validate'
 
 export default {
   name: 'AppAuth',
   data() {
     return {
       tab: 'login',
+      schema: {
+        name: 'required',
+        email: '',
+        age: '',
+        password: '',
+        confirm_password: '',
+        country: '',
+        tos: '',
+      },
     }
   },
   computed: {

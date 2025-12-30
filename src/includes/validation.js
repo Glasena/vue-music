@@ -1,5 +1,5 @@
 import { Form as VeeForm, Field as VeeField, defineRule, ErrorMessage } from "vee-validate"
-import {email, required, min, max, alpha_spaces as alphaSpaces, min_value as minVal, max_value as maxVal, confirmed } from '@vee-validate/rules';
+import {not_one_of as excluded, email, required, min, max, alpha_spaces as alphaSpaces, min_value as minVal, max_value as maxVal, confirmed } from '@vee-validate/rules';
 
 export default {
     //esse install ai é coisa do vue, pra registrar plugin
@@ -15,5 +15,6 @@ export default {
         defineRule('min_value', minVal);
         defineRule('max_value', maxVal);
         defineRule('confirmed', confirmed);
+        defineRule('excluded', excluded);
     }
 }

@@ -132,14 +132,21 @@ export default {
       this.reg_in_submission = true
       this.reg_alert_variant = 'bg-blue-500'
       this.reg_alert_msg = 'Please wait! Your account is being created.'
-
-      const userCred = await firebase
-        .auth()
-        .createUserWithEmailAndPassword(values.email, values.password)
+      let userCred = null
+      try {
+        userCred = await firebase
+          .auth()
+          .createUserWithEmailAndPassword(values.email, values.password)
+      } catch (error) {
+        this.reg_in_submission = false
+        this.reg_alert_variant = 'bg-red-500'
+        this.reg_alert_msg = 'Error, try again later.'
+        return
+      }
 
       this.reg_alert_variant = 'bg-green-500'
-      this.reg_alert_msg = 'Sucess! Your account has being created.'
-      console.log(values)
+      this.reg_alert_msg = 'Sucess! Your account has been created.'
+      console.log(userCred)
     },
   },
 }

@@ -5,14 +5,17 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
+    name: "home",
     path: "/",
     component: HomeView
   },
   {
+    name: 'about',
     path: "/about",
     component: AboutView
   },
   {
+    name: 'manage',
     path: "/manage",
     component: ManageView
   }

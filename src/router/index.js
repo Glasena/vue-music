@@ -18,7 +18,11 @@ const routes = [
     name: 'manage',
     path: "/manage",
     //alias: '/manage-music',
-    component: ManageView
+    component: ManageView,
+    beforeEnter: (to, from, next) => {
+      console.log('Manage Guard')
+      next();
+    }
   },
   {
     path: '/manage-music',
@@ -35,5 +39,10 @@ const router = createRouter({
   routes,
   linkExactActiveClass: 'text-yellow-500'
 })
+
+router.beforeEach((to, from, next) => {
+  console.log('Global Guard')
+  next();
+});
 
 export default router

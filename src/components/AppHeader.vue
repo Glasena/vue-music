@@ -25,7 +25,7 @@
               <RouterLink class="px-2 text-white" to="/manage">Manage</RouterLink>
             </li>
             <li>
-              <a class="px-2 text-white" href="#" @click.prevent="userStore.signOut">Logout</a>
+              <a class="px-2 text-white" href="#" @click.prevent="signOut">Logout</a>
             </li>
           </template>
         </ul>
@@ -46,6 +46,13 @@ export default {
   methods: {
     toggleAuthModal() {
       this.modalStore.isOpen = !this.modalStore.isOpen
+    },
+    signOut() {
+      this.userStore.signOut()
+
+      if (this.$route.name === 'manage') {
+        this.$router.push({ name: 'home' })
+      }
     },
   },
 }

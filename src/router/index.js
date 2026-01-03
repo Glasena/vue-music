@@ -17,6 +17,7 @@ const routes = [
   {
     name: 'manage',
     path: "/manage",
+    //alias: '/manage-music',
     component: ManageView
   },
   {

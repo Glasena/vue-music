@@ -3,7 +3,12 @@
   <header id="header" class="bg-gray-700">
     <nav class="container mx-auto flex justify-start items-center py-5 px-4">
       <!-- App Name -->
-      <RouterLink class="text-white font-bold uppercase text-2xl mr-4" to="/">Music</RouterLink>
+      <RouterLink
+        exact-active-class="no-active"
+        class="text-white font-bold uppercase text-2xl mr-4"
+        to="/"
+        >Music</RouterLink
+      >
 
       <div class="flex flex-grow items-center">
         <!-- Primary Navigation -->

@@ -18,6 +18,14 @@ const routes = [
     name: 'manage',
     path: "/manage",
     component: ManageView
+  },
+  {
+    path: '/manage-music',
+    redirect: { name: 'manage'},
+  },
+  {
+    path: '/:catchAll(.*)*',
+    redirect: { name: 'home' }
   }
 ];
 
